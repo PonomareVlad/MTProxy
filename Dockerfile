@@ -9,7 +9,7 @@ RUN git clone https://github.com/TelegramMessenger/MTProxy.git
 RUN cd MTProxy && make
 
 # Stage 1: Runtime
-FROM debian:9-slim
+FROM debian:12-slim
 
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
@@ -21,6 +21,6 @@ COPY --from=0 /MTProxy/objs/bin/mtproto-proxy /bin
 EXPOSE 443 2398
 VOLUME /data
 WORKDIR /data
-ENTRYPOINT /run.sh
+ENTRYPOINT ["/run.sh"]
 
 COPY run.sh /
