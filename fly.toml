@@ -1,5 +1,13 @@
-app = 'mtproxy-fly'
+# fly.toml app configuration file generated for mtproxy-ps on 2026-02-10T16:46:32+01:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = 'mtproxy-ps'
 primary_region = 'ams'
+
+[build]
+  image = 'telegrammessenger/proxy:latest'
 
 [[services]]
   protocol = 'tcp'
